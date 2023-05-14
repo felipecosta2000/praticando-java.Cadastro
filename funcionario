@@ -1,0 +1,138 @@
+package entity;
+import java.io.Serializable;
+
+//toda classe deve ser serializada para poder ser gravada
+//ou persistida
+//interface Serializable (importar Serializa) implements 
+//Padrao de Interface
+//ctrl + shift + o
+public class Funcionario implements
+Serializable{
+private static final long serialVersionUID = 1L;
+//basico (set e get)
+//construtor vazio e cheio e 
+//toString
+private Integer id;
+private String nome;
+private String profissao;
+private Double salario;
+public Funcionario(Integer id, String nome, String 
+profissao, Double salario) {
+this.id = id;
+this.nome = nome;
+this.profissao = profissao;
+this.salario = salario;
+//na hora que alimento alguma coisa deu errado
+exception...
+//se existir um erro ele bloqueia na hora, va para o 
+ERRO
+if(isId()==false && isNome()==false || 
+ isProfissao()== false || isSalario()==false) {
+ throw new IllegalArgumentException("Dados Invalidos ...");
+}
+}
+public Funcionario() {
+}
+@Override
+public String toString() {
+return "Funcionario [id=" + id + ", nome=" + nome + 
+", profissao=" + profissao + ", salario=" + salario + "]";
+}
+//alt + s generated get and setter 
+public Integer getId() {
+return id;
+}
+public void setId(Integer id) {
+this.id = id;
+}
+public String getNome() {
+return nome;
+}
+public void setNome(String nome) {
+this.nome = nome;
+}
+public String getProfissao() {
+return profissao;
+}
+public void setProfissao(String profissao) {
+this.profissao = profissao;
+}
+public Double getSalario() {
+return salario;
+}
+public void setSalario(Double salario) {
+this.salario = salario;
+}
+public static long getSerialversionuid() {
+return serialVersionUID;
+}
+public boolean isId() {
+if (this.id==null) 
+ return false;
+else if (this.id<=0)
+return false;
+else
+return true;
+}
+public boolean isNome() {
+if (this.nome==null) 
+ return false;
+else if (this.nome.length()<2)
+return false;
+else
+return true;
+}
+public boolean isProfissao() {
+if (this.profissao==null) 
+ return false;
+else if (this.profissao.length()<3)
+return false;
+else
+return true;
+}
+public boolean isSalario() {
+if (this.salario==null) 
+ return false;
+else if (this.salario<999.)
+//double . (ponto) Long ()l
+return false;
+else
+return true;
+}
+//set _ entrada
+//get _ saida
+//isNome - validacao (boolean (true ou false)
+//construtor (alimenta tudo de uma vez so
+//toString _ sai com todos de uma vez ...
+public static void main(String[] args) {
+try {
+ Funcionario f = new Funcionario(10,"lu","estagio",1200.);
+System.out.println(f);
+}catch(Exception ex) { 
+System.out.println(ex.getMessage());
+}finally {
+System.out.println("Depois do Acerto ou Erro ...");
+}
+//teste
+int i=10;
+int j=20;
+int m= 30;
+
+//++antes _ acrescenta na hora
+//variavel++ _ mais mais depois acrescenta na linha
+de baixo
+// || (cacadores de verdade) , encontra a verdade
+para)
+//encontro verdade paro dois ou
+System.out.println(i==10 | j++==20 | m++==30 );
+//jaque testou um, testou dois
+System.out.println(i + "," + j + ", " + m);
+int a =5;
+int b=7;
+//&& caÃ§adores da mentira
+//rapido
+System.out.println(a==7 & ++b==9);
+System.out.println(a + "," + b);
+}
+}
+
